@@ -1,0 +1,8 @@
+↑convertigo: 8.0.0.m006
+↓MovieDBBackend [core.Project]: 
+  comment: Mashup Sequencer project
+  version: 1.0
+  ↓MovieDb [connectors.HttpConnector-1700041202290]: 🗏 connectors/MovieDb.yaml
+  ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
+  ↓Login [sequences.GenericSequence]: 🗏 sequences/Login.yaml
+  ↓SearchMoviesByTitle [sequences.GenericSequence-1700043380153]: 🗏 sequences/SearchMoviesByTitle.yaml

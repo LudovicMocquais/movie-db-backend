@@ -1,0 +1,16 @@
+↓jIf [steps.IfStep-1700147894043]: 
+  condition: Username == 'admin' && Password == 'admin'
+  ↓authenticatedUserID [steps.SetAuthenticatedUserStep-1700148000064]: 
+    userid: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: JS
+          - →→: Username
+↓Username [variables.RequestableVariable-1700147841651]: 
+↓Password [variables.RequestableVariable-1700147848984]: 
+  value: 
+    - ↑ciphered: true
+    - ↑traceable: false
+    - →→: xd8e180806a1c1d83a6255212121ab827
+  visibility: '-1'

@@ -1,0 +1,203 @@
+authenticatedContextRequired: true
+↓inputVars [steps.InputVariablesStep-1700055079027]: 
+↓setMovieTitleToTitle [steps.SimpleStep-1700055163026]: 
+  expression: let movieTitle = title;
+↓Call_Transaction [steps.TransactionStep-1700044128832]: 
+  sourceTransaction: MovieDBBackend.MovieDb.SearchMoviesByTitle
+  ↓__header_Authorization [variables.StepVariable-1700044128834]: 
+    value: 
+      - ↑ciphered: true
+      - ↑traceable: false
+      - →→: x57dab831ffb13e466bdf91c8795ce2d2f85256b49d3837d97636a43e954e102284113310e0956fe7a209527ed766a009c415ef0688b56d9a870a54c1c830aa39df35e0c7f552539faf8d9c443160b5e762c64ddcedbec43d95e10d06f4ed12a20058a9d511fcd468d8faa330e5674b3df77d4db2af5910f329fb734b2b0e8c94d053cf238bcb6c55fcf34cee769e26728d2306e7515f4429020d04ae6b9a60ef75add29207a46a25c561855c896f74a555b34c71a561f73914dca621996152ef1e91735eccce2500104961e71d85b449c8423662a27103ffcf2f76f0b4c91c63
+    visibility: '-1'
+  ↓movieTitle [variables.StepVariable-1700044128836]: 
+↓IfExist [steps.IfExistStep-1700058268758]: 
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1700044128832
+        - java.lang.String: 
+          - ↑value: ./document/error
+  ↓Error_structure [steps.XMLErrorStep-1700058502553]: 
+    code: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1700044128832
+            - java.lang.String: 
+              - ↑value: ./document/error/code/text()
+    details: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1700044128832
+            - java.lang.String: 
+              - ↑value: ./document/error/details
+    message: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1700044128832
+            - java.lang.String: 
+              - ↑value: ./document/error/message/text()
+  ↓Return [steps.ReturnStep-1700058848826]: 
+↓movies [steps.JsonArrayStep-1700044419244]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: movies
+  ↓Iterator [steps.IteratorStep-1700044504669]: 
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1700044128832
+          - java.lang.String: 
+            - ↑value: ./document/object/results/object
+    ↓movie [steps.JsonObjectStep-1700044814522]: 
+      key: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+          - SmartType: 
+            - ↑mode: PLAIN
+            - →→: movie
+      ↓title [steps.JsonFieldStep-1700045126392]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: title
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: JS
+              - →→: movieTitle
+      ↓overview [steps.JsonFieldStep-1700045134199]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: overview
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: SOURCE
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1700044504669
+                - java.lang.String: 
+                  - ↑value: ./overview/text()
+      ↓release_date [steps.JsonFieldStep-1700045136352]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: release_date
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: SOURCE
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1700044504669
+                - java.lang.String: 
+                  - ↑value: ./release_date/text()
+      ↓original_title [steps.JsonFieldStep-1700045136587]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: original_title
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: SOURCE
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1700044504669
+                - java.lang.String: 
+                  - ↑value: ./original_title/text()
+      ↓jUpperCaseTitle [steps.SimpleSourceStep-1700056306166]: 
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1700044504669
+              - java.lang.String: 
+                - ↑value: ./title/text()
+        variableName: jUpperCaseTitle
+      ↓toUpperCase [steps.SimpleStep-1700056502833]: 
+        expression: jUpperCaseTitle = jUpperCaseTitle.toUpperCase();
+      ↓jPosterPath [steps.SimpleSourceStep-1700130686392]: 
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1700044504669
+              - java.lang.String: 
+                - ↑value: ./poster_path/text()
+        variableName: jPosterPath
+      ↓concatenatePosterPath [steps.SimpleStep-1700130741315]: 
+        expression: |
+          'if(jPosterPath != null){
+          	jPosterPath = ''https://image.tmdb.org/t/p/w500'' + jPosterPath;
+          } else {
+          	jPosterPath = ''https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg''
+          }
+          '
+      ↓img_path [steps.JsonFieldStep-1700045135026]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: img_path
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: JS
+              - →→: jPosterPath
+      ↓upperCaseTitle [steps.JsonFieldStep-1700056781662]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: upperCaseTitle
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: JS
+              - →→: jUpperCaseTitle
+↓title [variables.RequestableVariable-1700045952349]: 
+↓Test_Case_error_no_title [core.TestCase]: 
+  ↓title [variables.TestCaseVariable-1700058348049]: 
+↓Test_Case_title_avatar [core.TestCase]: 
+  ↓title [variables.TestCaseVariable-1700046542080]: 
+    value: avatar

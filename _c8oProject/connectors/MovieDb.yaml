@@ -1,0 +1,26 @@
+baseDir: /3/
+comment: API Movie DB
+https: true
+port: 443
+server: api.themoviedb.org
+↓Default_transaction [transactions.HttpTransaction]: 
+  ↑default: true
+↓SearchMoviesByTitle [transactions.JsonHttpTransaction-1700041256348]: 
+  comment: Request in which we search movies according to their tittles
+  subDir: search/movie?query={movieTitle}&include_adult=false&language=en-US&page=1
+  ↓Test_Case_title_avatar [core.TestCase]: 
+    ↓__header_Authorization [variables.TestCaseVariable-1700042957302]: 
+      value: 
+        - ↑ciphered: true
+        - ↑traceable: false
+        - →→: x57dab831ffb13e466bdf91c8795ce2d2f85256b49d3837d97636a43e954e102284113310e0956fe7a209527ed766a009c415ef0688b56d9a870a54c1c830aa39df35e0c7f552539faf8d9c443160b5e762c64ddcedbec43d95e10d06f4ed12a20058a9d511fcd468d8faa330e5674b3df77d4db2af5910f329fb734b2b0e8c94d053cf238bcb6c55fcf34cee769e26728d2306e7515f4429020d04ae6b9a60ef75add29207a46a25c561855c896f74a555b34c71a561f73914dca621996152ef1e91735eccce2500104961e71d85b449c8423662a27103ffcf2f76f0b4c91c63
+      visibility: '-1'
+    ↓movieTitle [variables.TestCaseVariable-1700042957304]: 
+      value: avatar
+  ↓__header_Authorization [variables.RequestableHttpVariable-1700042056547]: 
+    value: 
+      - ↑ciphered: true
+      - ↑traceable: false
+      - →→: x85c8099ac5dfd81016c01defaec8dd1f2e4af8c21266d219eed000ef344af3fe
+    visibility: '-1'
+  ↓movieTitle [variables.RequestableHttpVariable-1700042767152]: 
